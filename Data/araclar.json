@@ -1,0 +1,42 @@
+[
+    {
+        "arac ID": 1,
+        "bagaj": "450 lt",
+        "baslik": "Ford Focus",
+        "boyut": "4567 mm - 1825 mm",
+        "fiyat": "54000 Tl",
+        "tuketim": "6.5 lt/100 km"
+    },
+    {
+        "arac ID": 2,
+        "bagaj": "470 lt",
+        "baslik": "Toyota Corolla",
+        "boyut": "4650 mm -1775 mm",
+        "fiyat": "55000 Tl",
+        "tuketim": "6.2 lt/100 km"
+    },
+    {
+        "arac ID": 3,
+        "bagaj": "400 lt",
+        "baslik": "Audi A3",
+        "boyut": "4500 mm - 1800 mm",
+        "fiyat": "65000 Tl",
+        "tuketim": "6.0 lt/100 km"
+    },
+    {
+        "arac ID": 4,
+        "bagaj": "480 lt",
+        "baslik": "Skoda Octavia",
+        "boyut": "4700 mm - 1850 mm",
+        "fiyat": "60000 Tl",
+        "tuketim": "6.8 lt/100 km"
+    },
+    {
+        "arac ID": 5,
+        "bagaj": "430 lt",
+        "baslik": "Renault Megane",
+        "boyut": "4520 mm - 1780 mm",
+        "fiyat": "52000 Tl",
+        "tuketim": "6.2 lt/100 km"
+    }
+]

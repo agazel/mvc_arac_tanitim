@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Reset CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(34, 52, 76);
+            font-family: Arial, sans-serif;
+            color: #f0f0f0; /* Açık renk yazı rengi */
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        nav {
+            background-color: #def4f4;
+            text-align: center;
+            padding: 10px;
+        }
+
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            nav li {
+                display: inline-block;
+                margin-right: 20px;
+            }
+
+            nav a {
+                text-decoration: none;
+                color: grey;
+                font-weight: bold;
+                padding: 10px;
+                transition: background-color 0.3s ease;
+            }
+
+                nav a:hover {
+                    background-color: #a9b9b9;
+                }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="~/">ANASAYFA</a></li>
+            <li><a href="~/araclar">ARAÇLAR</a></li>
+
+            <a href="https://www.erbakan.edu.tr/" target="_blank"><img src="~/resimler/neülogo.png" style="width: 70px;"></a>
+        </ul>
+    </nav>
+
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    <footer>
+        &copy; 21370031004 - Ahmet Gazi GAZEL | WEB TABANLI PROGRAMLAMA DERSİ ÖDEVİ
+    </footer>
+
+</body>
+</html>

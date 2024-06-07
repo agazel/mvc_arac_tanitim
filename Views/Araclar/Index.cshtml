@@ -1,0 +1,76 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Ödev - Araçlar";
+}
+
+<style>
+    /* CSS stilleri burada */
+</style>
+
+<h1>Araçlar</h1>
+
+<div id="araclar-icerik">
+    <div id="araclar-listesi">
+        <ul type="none">
+            <li onclick="araclariGoster('Ford Focus')"><a href="#">Ford Focus</a></li>
+            <li onclick="araclariGoster('Toyota Corolla')"><a href="#">Toyota Corolla</a></li>
+            <li onclick="araclariGoster('Audi A3')"><a href="#">Audi A3</a></li>
+            <li onclick="araclariGoster('Skoda Octavia')"><a href="#">Skoda Octavia</a></li>
+            <li onclick="araclariGoster('Renault Megane')"><a href="#">Renault Megane</a></li>
+        </ul>
+    </div>
+
+    <div id="araclar-detay">
+        <p> Yan menüden bilgisini görmek istediğiniz aracı seçiniz.</p>
+    </div>
+</div>
+
+<script>function araclariGoster(aracAdi) {
+        var aracService = new AraclarService("Data Source=araclar.db;");
+
+        var aracDetaylari = aracService.GetAracDetails(aracAdi);
+
+        if (!aracDetaylari) {
+            console.error("Belirtilen araç detayları bulunamadı.");
+            return;
+        }
+
+        var resimDosyasiAdi = aracAdi.replace(/\s+/g, '').toLowerCase();
+        var resimler = aracDetaylari.Resimler || [];
+
+        var detayHTML = '<h3>' + aracAdi + '</h3>';
+        detayHTML += '<p>' + aracDetaylari.Açıklama + '</p>';
+
+        detayHTML += '<div id="araclar-slayt">';
+        detayHTML += '<img id="araclar-resim" src="resimler/araclar/' + resimDosyasiAdi + '-1.png" alt="' + aracAdi + ' Detaylı Resim" style="width: 100%; max-width: 800px; height: auto;">';
+        detayHTML += '<div style="display: flex; justify-content: center;">';
+        detayHTML += '<button onclick="oncekiResim()">Önceki</button>';
+        detayHTML += '<button onclick="sonrakiResim()">Sonraki</button>';
+        detayHTML += '</div>';
+
+        for (var ozellik in aracDetaylari) {
+            if (ozellik !== 'Açıklama' && ozellik !== 'Resimler') {
+                detayHTML += '<div><strong>' + ozellik + ':</strong> ' + aracDetaylari[ozellik] + '</div>';
+            }
+        }
+
+        document.getElementById('araclar-detay').innerHTML = detayHTML;
+
+        var resimIndex = 0;
+
+        function guncelleResim() {
+            document.getElementById('araclar-resim').src = 'resimler/araclar/' + resimDosyasiAdi + '-' + (resimIndex + 1) + '.png';
+        }
+
+        window.oncekiResim = function () {
+            resimIndex = (resimIndex - 1 + resimler.length) % resimler.length;
+            guncelleResim();
+        };
+
+        window.sonrakiResim = function () {
+            resimIndex = (resimIndex + 1) % resimler.length;
+            guncelleResim();
+        };
+
+        guncelleResim();
+    }</script>
